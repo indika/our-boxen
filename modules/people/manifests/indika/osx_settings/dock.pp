@@ -1,4 +1,13 @@
 class people::indika::osx_settings::dock {
+
+  boxen::osx_defaults { 'Disable autoswitching of workspaces':
+    user   => $::luser,
+    domain => 'com.apple.dock',
+    key    => 'workspaces-auto-swoosh',
+    type   => 'bool',
+    value  => true,
+  }
+
   boxen::osx_defaults { 'Set the icon size of Dock items to 48 pixels':
     user   => $::luser,
     domain => 'com.apple.dock',
@@ -106,4 +115,5 @@ class people::indika::osx_settings::dock {
     type   => 'bool',
     value  => true,
   }
+
 }

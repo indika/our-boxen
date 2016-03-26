@@ -44,6 +44,18 @@ class people::indika::boxen_dev {
       require  => File['dir_osx-boxen']
     }
 
+    # Remove this once I understand the dependencies
+    vcsrepo { "${puppet_modules_dir}/puppet-sublime_text":
+      ensure   => present,
+      provider => git,
+      source   => "https://github.com/boxen/puppet-sublime_text.git",
+      depth    => 1,
+      owner    => 'indika',
+      group    => 'staff',
+      require  => File['dir_puppet-modules']
+    }
+
+
     # This is a module that I'm developing. It's kindof empty
     vcsrepo { "${puppet_modules_dir}/puppet-virtualenv":
       ensure   => present,

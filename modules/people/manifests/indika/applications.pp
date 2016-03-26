@@ -2,10 +2,13 @@ class people::indika::applications {
 
 
   include brewcask
+  package { 'caffeine': provider => 'brewcask' }
+  package { 'firefox': provider => 'brewcask' }
   package { 'flux': provider => 'brewcask' }
   package { 'spotify': provider => 'brewcask' }
   package { 'skype': provider => 'brewcask' }
   package { 'transmission': provider => 'brewcask' }
+  package { 'virtualbox': provider => 'brewcask' }
   package { 'xquartz': provider => 'brewcask' }
 
   include iterm2::dev
@@ -21,7 +24,6 @@ class people::indika::applications {
   # # include clipmenu
   # include transmission
   # # include java
-  # include firefox
   # include vlc
   # include spotify
 
@@ -33,7 +35,7 @@ class people::indika::applications {
   # #   build => '3083'
   # # }
 
-  # include virtualbox
+
   # include vlc
   # include xquartz
   # # include adobe_reader
@@ -71,6 +73,10 @@ class people::indika::applications {
 
   # # Functional dev
   # include people::indika::applications::emacs
+
+  # Deprecated in favour of brew-cask
+  # include virtualbox
+  # include firefox
 
 
 

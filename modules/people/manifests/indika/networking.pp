@@ -9,31 +9,39 @@ class people::indika::networking {
     group => 'wheel',
   }
 
-  file { 'ssh_home':
-    ensure   => directory,
-    path     => '/Users/indika/.ssh',
-    owner    => 'indika',
+  file { '/Users/indika/.ssh':
+    ensure   => link,
+    target   => '/Users/indika/dev/private/ssh/cobalt',
+    owner    => $user,
     group    => 'staff',
-    mode     => 755, #TODO: Find out what this should be,
+    mode     => 700
   }
 
-  file { '/Users/indika/.ssh/config':
-    ensure => present,
-    mode => 600,
-    source => 'puppet:///modules/people/ssh_config.txt',
-    recurse => false,
-    owner => 'indika',
-    group => 'staff',
-    require => File['ssh_home']
-  }
+  # file { 'ssh_home':
+  #   ensure   => directory,
+  #   path     => '/Users/indika/.ssh',
+  #   owner    => 'indika',
+  #   group    => 'staff',
+  #   mode     => 755, #TODO: Find out what this should be,
+  # }
 
-  file { 'ssh_config_control':
-    ensure   => directory,
-    path     => '/Users/indika/.ssh/control/',
-    owner    => 'indika',
-    group    => 'staff',
-    mode     => 700,
-    require => File['ssh_home']
-  }
+  # file { '/Users/indika/.ssh/config':
+  #   ensure => present,
+  #   mode => 600,
+  #   source => 'puppet:///modules/people/ssh_config.txt',
+  #   recurse => false,
+  #   owner => 'indika',
+  #   group => 'staff',
+  #   require => File['ssh_home']
+  # }
+
+  # file { 'ssh_config_control':
+  #   ensure   => directory,
+  #   path     => '/Users/indika/.ssh/control/',
+  #   owner    => 'indika',
+  #   group    => 'staff',
+  #   mode     => 700,
+  #   require => File['ssh_home']
+  # }
 
 }

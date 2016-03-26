@@ -21,6 +21,7 @@ class people::indika {
     }
 
 
+
     include people::indika::networking
     include people::indika::git_config
     include people::indika::frictionless
