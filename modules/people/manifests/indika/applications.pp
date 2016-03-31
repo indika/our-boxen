@@ -1,10 +1,13 @@
 class people::indika::applications {
 
-
   include brewcask
+
+  notice('I need to backup bettertouchtool plist. See mackup for help.')
+  package { 'bettertouchtool': provider => 'brewcask' }
   package { 'caffeine': provider => 'brewcask' }
-  package { 'firefox': provider => 'brewcask' }
+  package { 'chicken': provider => 'brewcask' }
   package { 'flux': provider => 'brewcask' }
+  package { 'keepassx': provider => 'brewcask' }
   package { 'spotify': provider => 'brewcask' }
   package { 'skype': provider => 'brewcask' }
   package { 'transmission': provider => 'brewcask' }
@@ -17,6 +20,8 @@ class people::indika::applications {
   include iterm2::colors::saturn
   include iterm2::colors::solarized_dark
   include iterm2::colors::zenburn
+
+
 
   # include chrome
   # include skype
@@ -40,19 +45,17 @@ class people::indika::applications {
   # include xquartz
   # # include adobe_reader
   # # include alfred
-
-
-  # # include people::felho::applications::battery_time
-  # # include people::felho::applications::bettertouchtool
   # # include people::felho::applications::clipgrab
-  # include people::indika::applications::chicken_of_the_vnc
+
   # include people::indika::applications::clamav
   # #include people::indika::applications::fuse
   # include people::indika::applications::geektool
   # include people::indika::applications::limechat
+  include people::indika::applications::firefox
   include people::indika::applications::nordvpn
   # include people::indika::applications::pandora
-  # include people::indika::applications::pycharm
+  include people::indika::applications::pycharm
+  include people::indika::applications::tmux
   # include people::indika::applications::rubymine
   # # include people::indika::applications::rust
   # include people::indika::applications::spotifree
@@ -74,10 +77,11 @@ class people::indika::applications {
   # # Functional dev
   # include people::indika::applications::emacs
 
+  #TODO: If these are deprecated, then delete the files as well
   # Deprecated in favour of brew-cask
   # include virtualbox
   # include firefox
-
+  # include people::indika::applications::chicken_of_the_vnc
 
 
 }

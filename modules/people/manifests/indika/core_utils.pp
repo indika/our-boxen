@@ -5,8 +5,8 @@ class people::indika::core_utils {
   package {
     [
       'coreutils',
-      'findutils',
-      'gnu-tar',
+      #'findutils',   # Already specified by Sir Boxen
+      #'gnu-tar',     # Already specified by Sir Boxen
       'gnu-sed',
       'gawk',
       'gnutls',

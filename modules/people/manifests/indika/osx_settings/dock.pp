@@ -5,7 +5,7 @@ class people::indika::osx_settings::dock {
     domain => 'com.apple.dock',
     key    => 'workspaces-auto-swoosh',
     type   => 'bool',
-    value  => true,
+    value  => false,
   }
 
   boxen::osx_defaults { 'Set the icon size of Dock items to 48 pixels':

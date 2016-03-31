@@ -27,6 +27,7 @@ class people::indika::application_settings::sublime_text {
    source => 'wbond/sublime_terminal'
   }
 
+
   #TODO: Add requirements to package?
   #Looks interesting: https://github.com/geovanisouza92/Pushb/blob/master/pushb.py
 

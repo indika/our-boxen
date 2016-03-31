@@ -67,8 +67,7 @@ github "xquartz",     "1.2.1"
 # github "sysctl",      "1.0.1"
 
 
-# github "python",                "3.0.2", :repo => "mloberg/puppet-python"
-github "python",                "1.11.0", :repo => "stankevich/puppet-python"
+github "python",                "3.0.2", :repo => "mloberg/puppet-python"
 
 
 github "iterm2",                "1.2.5"

@@ -156,6 +156,11 @@ GITHUBTARBALL
     xquartz (1.2.1)
 
 GITHUBTARBALL
+  remote: mloberg/puppet-python
+  specs:
+    python (3.0.2)
+
+GITHUBTARBALL
   remote: puppetlabs/puppetlabs-inifile
   specs:
     inifile (1.4.1)
@@ -169,11 +174,6 @@ GITHUBTARBALL
   remote: ripienaar/puppet-module-data
   specs:
     module_data (0.0.4)
-
-GITHUBTARBALL
-  remote: stankevich/puppet-python
-  specs:
-    python (1.11.0)
 
 DEPENDENCIES
   boxen (= 3.11.1)
@@ -198,7 +198,7 @@ DEPENDENCIES
   pkgconfig (= 1.0.0)
   postgresql (= 4.0.1)
   puppetlabs-vcsrepo (>= 0)
-  python (= 1.11.0)
+  python (= 3.0.2)
   repository (= 2.4.1)
   ruby (= 8.5.4)
   seil (= 1.0.4)

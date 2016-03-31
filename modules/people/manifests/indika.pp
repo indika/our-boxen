@@ -21,12 +21,11 @@ class people::indika {
     }
 
 
-
     include people::indika::networking
     include people::indika::git_config
     include people::indika::frictionless
     include people::indika::osx_settings
-    # include people::indika::core_utils
+    include people::indika::core_utils
     include people::indika::fonts
 
     include people::indika::boxen_dev
@@ -40,7 +39,7 @@ class people::indika {
 
     # include people::indika::projects::graph
     # include projects::blog
-    # include projects::netbox
+    include projects::netbox
     # include projects::course
 
     #This is always commented out
