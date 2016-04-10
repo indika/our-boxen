@@ -118,6 +118,17 @@ class people::indika::boxen_dev {
       require  => File['dir_osx-boxen']
     }
 
+    # Ánsible Examples
+    vcsrepo { "${boxen_dev_dir}/ansible-examples":
+      ensure   => present,
+      provider => git,
+      source   => "https://github.com/ansible/ansible-examples",
+      depth    => 1,
+      owner    => 'indika',
+      group    => 'staff',
+      require  => File['dir_osx-boxen']
+    }
+
     # And a bit of ansible stuff
     # Puppet module directory
     file { 'dir_ansible-hosts':

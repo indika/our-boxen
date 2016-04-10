@@ -6,12 +6,14 @@ class people::indika::applications {
   package { 'bettertouchtool': provider => 'brewcask' }
   package { 'caffeine': provider => 'brewcask' }
   package { 'chicken': provider => 'brewcask' }
+  package { 'flash': provider => 'brewcask' }
   package { 'flux': provider => 'brewcask' }
   package { 'keepassx': provider => 'brewcask' }
   package { 'spotify': provider => 'brewcask' }
   package { 'skype': provider => 'brewcask' }
   package { 'transmission': provider => 'brewcask' }
   package { 'virtualbox': provider => 'brewcask' }
+  package { 'vlc': provider => 'brewcask' }
   package { 'xquartz': provider => 'brewcask' }
 
   include iterm2::dev
