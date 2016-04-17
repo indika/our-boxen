@@ -49,6 +49,10 @@ class projects::netbox {
       package => 'simplejson',
       python  => '2.7.8',
     }
+    python::package { "lxml for ${version2}":
+      package => 'lxml',
+      python  => '2.7.8',
+    }
     python::package { "mercurial for ${version2}":
       package => 'mercurial',
       python  => '2.7.8',

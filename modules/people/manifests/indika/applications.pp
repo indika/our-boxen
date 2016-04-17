@@ -8,10 +8,12 @@ class people::indika::applications {
   package { 'chicken': provider => 'brewcask' }
   package { 'flash': provider => 'brewcask' }
   package { 'flux': provider => 'brewcask' }
+  package { 'google-chrome': provider => 'brewcask' }
   package { 'keepassx': provider => 'brewcask' }
   package { 'spotify': provider => 'brewcask' }
   package { 'skype': provider => 'brewcask' }
   package { 'transmission': provider => 'brewcask' }
+  package { 'tuxguitar': provider => 'brewcask' }
   package { 'virtualbox': provider => 'brewcask' }
   package { 'vlc': provider => 'brewcask' }
   package { 'xquartz': provider => 'brewcask' }
