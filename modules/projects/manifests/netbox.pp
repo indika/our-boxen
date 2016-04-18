@@ -30,8 +30,8 @@ class projects::netbox {
         python  => $version2,
     }
 
-  # Python Dependencies
-  # click enum34 pydns simplejson mercurial mercurial-keyring httplib2 Fabric Twisted==13.0.0
+    # Python Dependencies
+    # click enum34 pydns simplejson mercurial mercurial-keyring httplib2 Fabric Twisted==13.0.0
 
     python::package { "click for ${version2}":
       package => 'click',
@@ -47,6 +47,10 @@ class projects::netbox {
     }
     python::package { "simplejson for ${version2}":
       package => 'simplejson',
+      python  => '2.7.8',
+    }
+    python::package { "lxml for ${version2}":
+      package => 'lxml',
       python  => '2.7.8',
     }
     python::package { "mercurial for ${version2}":
@@ -138,5 +142,24 @@ class projects::netbox {
   #   require => File['pip_conf_dir']
   # }
 
+
+  # Link in .valid_sites and .valid_scripts
+  file { '/Users/indika/.valid_sites':
+    ensure   => link,
+    target   => '/Users/indika/dev/config/netbox/valid_sites',
+    owner    => $user,
+    group    => 'staff',
+    mode     => 644,
+    require => Vcsrepo['/Users/indika/dev/config']
+  }
+
+  file { '/Users/indika/.valid_scripts':
+    ensure   => link,
+    target   => '/Users/indika/dev/config/netbox/valid_scripts',
+    owner    => $user,
+    group    => 'staff',
+    mode     => 644,
+    require => Vcsrepo['/Users/indika/dev/config']
+  }
 
 }
