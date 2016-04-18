@@ -18,7 +18,7 @@ class people::indika::zsh {
     group      => 'staff',
   }
 
-#TODO: I could make architectures a submodule
+  #TODO: I could make architectures a submodule
 
   file { "/Users/${::boxen_user}/.zlogin":
     ensure   => link,
@@ -56,15 +56,6 @@ class people::indika::zsh {
     require => Vcsrepo['/Users/indika/.zprezto']
   }
 
-  file { "/Users/${::boxen_user}/.zshrc":
-    ensure   => link,
-    target   => "/Users/${::boxen_user}/.zprezto/runcoms/zshrc",
-    owner    => $user,
-    group    => 'staff',
-    mode     => 644,
-    require => Vcsrepo['/Users/indika/.zprezto']
-  }
-
   file { "/Users/${::boxen_user}/.zpreztorc":
     ensure   => link,
     target   => "/Users/${::boxen_user}/.zprezto/runcoms/zpreztorc",
@@ -75,38 +66,38 @@ class people::indika::zsh {
   }
 
 
-  #TODO: Learn how to join strings
+  case $::hostname {
+    'cobalt': {
+      notice("Linking Wings ZSH to .zprezto/architectures/osx-cobalt")
 
-  # case $::hostname {
-  #   'cobalt': {
-  #     notice("This is Cobalt. Creating the link.")
+      file { "/Users/${::boxen_user}/.zshrc":
+        ensure   => link,
+        target   => "/Users/${::boxen_user}/.zprezto/architectures/osx-cobalt.sh",
+        owner    => $user,
+        group    => 'staff',
+        mode     => 644,
+        require => Vcsrepo['/Users/indika/.zprezto']
+      }
+    }
 
-  #     file { '/Users/indika/.zshrc':
-  #       ensure => 'link',
-  #       target => '/Users/indika/.oh-my-zsh/dotzshrcs/dotzshrc_cobalt',
-  #       owner => $user,
-  #       group => 'staff',
-  #       require => Repository['oh-my-zsh'],
-  #     }
-  #   }
+    'wings': {
+      notice("Linking Wings ZSH to .zprezto/architectures/osx-wings")
 
-  #   'wings': {
-  #     notice("This is Wings. Creating the link.")
+      file { "/Users/${::boxen_user}/.zshrc":
+        ensure   => link,
+        target   => "/Users/${::boxen_user}/.zprezto/architectures/osx-wings.sh",
+        owner    => $user,
+        group    => 'staff',
+        mode     => 644,
+        require => Vcsrepo['/Users/indika/.zprezto']
+      }
+    }
 
-  #     file { '/Users/indika/.zshrc':
-  #       ensure => 'link',
-  #       target => '/Users/indika/.oh-my-zsh/dotzshrcs/dotzshrc_wings',
-  #       owner => $user,
-  #       group => 'staff',
-  #       require => Repository['oh-my-zsh'],
-  #     }
-  #   }
-
-  #   default: {
-  #     #TODO: I should raise an error
-  #     notice("Do not know who this is")
-  #   }
-  # }
+    default: {
+      #TODO: I should raise an error
+      notice("Unhandled hostname")
+    }
+  }
 
 
   require boxen::config
