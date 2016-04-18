@@ -1,11 +1,12 @@
 class people::indika::osx_settings::dock {
 
+  # This one swooshing to a new space when selecting a window from expose
   boxen::osx_defaults { 'Disable autoswitching of workspaces':
     user   => $::luser,
     domain => 'com.apple.dock',
     key    => 'workspaces-auto-swoosh',
     type   => 'bool',
-    value  => false,
+    value  => true,
   }
 
   boxen::osx_defaults { 'Set the icon size of Dock items to 48 pixels':
