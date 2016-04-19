@@ -1,20 +1,68 @@
 class people::indika::applications::emacs {
 
-  package { 'Aquamacs':
-    provider => 'appdmg',
-    source   => 'https://dl.dropboxusercontent.com/u/8261661/resjBlDEvhYB3liuvOX/Aquamacs-Emacs-3.2.dmg',
-  }
 
-  # Spacemacs configuration
+    package {
+      [
+        'emacs'   #TODO: How do I use head?
+      ]:
+    }
 
-  file { '/Users/indika/.spacemacs':
-    ensure   => link,
-    target   => '/Users/indika/dev/config/emacs/.spacemacs',
-    owner    => $user,
-    group    => 'staff',
-    mode     => 644,
-    require => Vcsrepo['/Users/indika/dev/config']
-  }
+    file { 'dir_emacs_d':
+      ensure   => directory,
+      path     => '/Users/indika/.emacs.d',
+      owner    => 'indika',
+      group    => 'staff',
+      mode     => 0700,
+    }
+
+    file { "/Users/${::boxen_user}/.emacs":
+      ensure   => link,
+      target   => "/Users/${::boxen_user}/dev/config/emacs/.emacs",
+      owner    => $user,
+      group    => 'staff',
+      mode     => 644,
+      require => Vcsrepo['/Users/indika/.zprezto']
+    }
+
+    $emacs_packages_dir = "/Users/${::boxen_user}/dev/osx-emacs-packages"
+
+    # Emacs packages directory
+    file { 'dir_emacs_packages_dir':
+      ensure   => directory,
+      path     => $emacs_packages_dir,
+      owner    => 'indika',
+      group    => 'staff',
+      mode     => 755,
+    }
+
+    # Some color theme
+    vcsrepo { "${emacs_packages_dir}/color-theme-sanityinc-tomorrow":
+      ensure   => present,
+      provider => git,
+      source   => "https://github.com/purcell/color-theme-sanityinc-tomorrow",
+      depth    => 1,
+      owner    => 'indika',
+      group    => 'staff',
+      require  => File['dir_emacs_packages_dir']
+    }
+
+
+
+  # package { 'Aquamacs':
+  #   provider => 'appdmg',
+  #   source   => 'https://dl.dropboxusercontent.com/u/8261661/resjBlDEvhYB3liuvOX/Aquamacs-Emacs-3.2.dmg',
+  # }
+
+  #TODO: Reconsider spacemacs. It was kewl.
+  # # Spacemacs configuration
+  # file { '/Users/indika/.spacemacs':
+  #   ensure   => link,
+  #   target   => '/Users/indika/dev/config/emacs/.spacemacs',
+  #   owner    => $user,
+  #   group    => 'staff',
+  #   mode     => 644,
+  #   require => Vcsrepo['/Users/indika/dev/config']
+  # }
 
 
 
@@ -61,12 +109,5 @@ class people::indika::applications::emacs {
   # }
 
 
-
-# source   => 'http://braeburn.aquamacs.org/releases/Aquamacs-Emacs-2.5.dmg',
-
-# http://aquamacs.org/download-release.shtml
-
-# And read this:
-# http://wiki.portal.chalmers.se/agda/pmwiki.php?n=Main.MacOSX
 
 }
