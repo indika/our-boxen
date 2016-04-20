@@ -16,7 +16,8 @@ class people::indika::applications {
   package { 'transmission': provider => 'brewcask' }
   package { 'tuxguitar': provider => 'brewcask' }
   package { 'virtualbox': provider => 'brewcask' }
-  package { 'vlc': provider => 'brewcask' }
+  #TODO: Find out why vlc is constantly breaking
+  # package { 'vlc': provider => 'brewcask' }
   package { 'xquartz': provider => 'brewcask' }
 
   include iterm2::dev
