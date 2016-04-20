@@ -37,6 +37,14 @@ class people::indika::frictionless {
     group    => 'staff',
   }
 
+  file { 'dir_keyboard_layouts':
+    ensure   => directory,
+    path     => '/Users/indika/Library/Keyboard Layouts',
+    owner    => 'indika',
+    group    => 'staff',
+    mode     => 700,
+  }
+
   file { '/Users/indika/Library/Keyboard Layouts/Frictionless.bundle':
     ensure => present,
     mode => 644,
@@ -44,7 +52,7 @@ class people::indika::frictionless {
     recurse => true,
     owner => 'indika',
     group => 'staff',
-    require => Vcsrepo['/Users/indika/dev/frictionless']
+    require => [ Vcsrepo['/Users/indika/dev/frictionless'], File['dir_keyboard_layouts'] ]
   }
 
   package { 'Ukelele':
