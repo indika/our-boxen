@@ -67,6 +67,19 @@ class people::indika::zsh {
 
 
   case $::hostname {
+    'mesa': {
+      notice("Linking Wings ZSH to .zprezto/architectures/osx-mesa")
+
+      file { "/Users/${::boxen_user}/.zshrc":
+        ensure   => link,
+        target   => "/Users/${::boxen_user}/.zprezto/architectures/osx-mesa.sh",
+        owner    => $user,
+        group    => 'staff',
+        mode     => 644,
+        require => Vcsrepo['/Users/indika/.zprezto']
+      }
+    }
+
     'cobalt': {
       notice("Linking Wings ZSH to .zprezto/architectures/osx-cobalt")
 
