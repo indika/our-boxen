@@ -47,6 +47,8 @@ class people::indika::applications::emacs {
     }
 
 
+    # Wire in launch.d
+
 
   # package { 'Aquamacs':
   #   provider => 'appdmg',

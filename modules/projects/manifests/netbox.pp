@@ -99,10 +99,11 @@ class projects::netbox {
         python  => $version3,
     }
 
+    #TODO: If I am going to enable this, then I need to ensure that the folder exists
     # ensure a certain python version is used in a dir
-    python::local { '/Users/indika/dev/box/mailarchive':
-      version => '3.4.1'
-    }
+    # python::local { '/Users/indika/dev/box/mailarchive':
+    #   version => '3.4.1'
+    # }
 
     python::package { "sqlalchemy for ${version3}":
       package => 'sqlalchemy',
