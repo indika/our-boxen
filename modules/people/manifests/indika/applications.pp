@@ -9,7 +9,6 @@ class people::indika::applications {
   package { 'flash': provider => 'brewcask' }
   package { 'flux': provider => 'brewcask' }
   package { 'google-chrome': provider => 'brewcask' }
-  package { 'limechat': provider => 'brewcask' }
   package { 'keepassx': provider => 'brewcask' }
   package { 'spotify': provider => 'brewcask' }
   package { 'skype': provider => 'brewcask' }
@@ -51,13 +50,12 @@ class people::indika::applications {
   # include xquartz
   # # include adobe_reader
   # # include alfred
-  # # include people::felho::applications::clipgrab
-
+#
   # include people::indika::applications::clamav
   include people::indika::applications::emacs
   # #include people::indika::applications::fuse
   # include people::indika::applications::geektool
-  # include people::indika::applications::limechat
+  include people::indika::applications::limechat
   include people::indika::applications::firefox
   include people::indika::applications::nordvpn
   # include people::indika::applications::pandora
