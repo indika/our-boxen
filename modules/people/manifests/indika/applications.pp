@@ -6,6 +6,7 @@ class people::indika::applications {
   package { 'bettertouchtool': provider => 'brewcask' }
   package { 'caffeine': provider => 'brewcask' }
   package { 'chicken': provider => 'brewcask' }
+  package { 'dropbox': provider => 'brewcask' }
   package { 'flash': provider => 'brewcask' }
   package { 'flux': provider => 'brewcask' }
   package { 'google-chrome': provider => 'brewcask' }
