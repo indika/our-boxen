@@ -3,6 +3,7 @@ class projects::netbox {
     # include python
 
     package { 'python': }
+    package { 'dupes/gpatch': }
     include projects::netbox::mercurial
 
     # MailArchive stuff
@@ -73,6 +74,22 @@ class projects::netbox {
       package => 'Twisted',
       python  => '2.7.8',
       version => '>=13.0.0,<=15.4.0',
+    }
+
+    # For Bone
+    python::package { "psutil ${version2}":
+      package => 'psutil',
+      python  => '2.7.8',
+    }
+
+    # For SlackBot
+    python::package { "crochet ${version2}":
+      package => 'crochet',
+      python  => '2.7.8',
+    }
+    python::package { "wrapt ${version2}":
+      package => 'wrapt',
+      python  => '2.7.8',
     }
 
     # I need lxml for some of my scripts
