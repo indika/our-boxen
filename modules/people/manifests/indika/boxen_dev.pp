@@ -134,16 +134,25 @@ class people::indika::boxen_dev {
     file { 'dir_ansible-hosts':
       ensure   => directory,
       path     => "/etc/ansible",
-      owner    => 'root',
-      group    => 'wheel',
+      owner    => 'indika',
+      group    => 'staff',
       mode     => 755,
     }
 
     file { '/etc/ansible/hosts':
       ensure   => link,
       target   => '/Users/indika/dev/config/misc/ansible.hosts.txt',
-      owner    => 'root',
-      group    => 'wheel',
+      owner    => 'indika',
+      group    => 'staff',
+      mode     => 644,
+      require => File['dir_ansible-hosts']
+    }
+
+    file { '/etc/ansible/hosts-nb':
+      ensure   => link,
+      target   => '/Users/indika/dev/box/internal/ansible/hosts',
+      owner    => 'indika',
+      group    => 'staff',
       mode     => 644,
       require => File['dir_ansible-hosts']
     }
