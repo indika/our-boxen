@@ -11,7 +11,6 @@ class people::indika {
 
 
     # This is a bootstrap repo
-
     vcsrepo { "/Users/indika/dev/config":
       ensure   => present,
       provider => git,
@@ -21,7 +20,7 @@ class people::indika {
     }
 
 
-    include people::indika::networking
+    #include people::indika::networking
     include people::indika::git_config
     include people::indika::frictionless
     include people::indika::osx_settings
@@ -39,11 +38,9 @@ class people::indika {
 
     # include people::indika::projects::graph
     # include projects::blog
-    include projects::netbox
+    #include projects::netbox
     # include projects::course
-
-    #This is always commented out
-    ##include projects::truecrypt
+    include projects::meta
 
 }
 
