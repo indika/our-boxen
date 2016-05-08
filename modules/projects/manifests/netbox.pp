@@ -76,6 +76,12 @@ class projects::netbox {
       version => '>=13.0.0,<=15.4.0',
     }
 
+    # Ansible
+    python::package { "ansible ${version2}":
+      package => 'ansible',
+      python  => '2.7.8',
+    }
+
     # For Bone
     python::package { "psutil ${version2}":
       package => 'psutil',

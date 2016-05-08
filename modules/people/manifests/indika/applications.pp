@@ -14,6 +14,7 @@ class people::indika::applications {
   package { 'spotify': provider => 'brewcask' }
   package { 'skype': provider => 'brewcask' }
   package { 'transmission': provider => 'brewcask' }
+  package { 'rcdefaultapp': provider => 'brewcask' }
   package { 'tuxguitar': provider => 'brewcask' }
   package { 'virtualbox': provider => 'brewcask' }
   #TODO: Find out why vlc is constantly breaking

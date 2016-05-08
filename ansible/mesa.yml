@@ -1,0 +1,11 @@
+---
+- hosts: all
+  gather_facts: no
+  remote_user: root
+
+  # Useful reading
+
+  tasks:
+    - name: Create virtualenvs director
+      file: path=~/.virtualenvs state=directory
+
