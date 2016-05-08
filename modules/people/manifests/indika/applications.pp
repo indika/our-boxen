@@ -6,6 +6,7 @@ class people::indika::applications {
   package { 'bettertouchtool': provider => 'brewcask' }
   package { 'caffeine': provider => 'brewcask' }
   package { 'chicken': provider => 'brewcask' }
+  package { 'dropbox': provider => 'brewcask' }
   package { 'flash': provider => 'brewcask' }
   package { 'flux': provider => 'brewcask' }
   package { 'google-chrome': provider => 'brewcask' }
@@ -13,6 +14,7 @@ class people::indika::applications {
   package { 'spotify': provider => 'brewcask' }
   package { 'skype': provider => 'brewcask' }
   package { 'transmission': provider => 'brewcask' }
+  package { 'rcdefaultapp': provider => 'brewcask' }
   package { 'tuxguitar': provider => 'brewcask' }
   package { 'virtualbox': provider => 'brewcask' }
   #TODO: Find out why vlc is constantly breaking

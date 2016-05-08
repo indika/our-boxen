@@ -6,14 +6,16 @@ class people::indika::applications::pycharm {
 
   notice("I need to backup my Pycharm keymaps and options once I am happy with it")
 
-  # vcsrepo { "${pycharm_home}/keymaps":
-  #   ensure   => latest,
-  #   provider => git,
-  #   source   => 'https://github.com/indika/PyCharm40-keymaps',
-  #   revision => 'master',
-  #   owner    => 'indika',
-  #   group    => 'staff',
-  # }
+  vcsrepo { "${pycharm_home}/keymaps":
+    ensure   => latest,
+    provider => git,
+    source   => 'https://github.com/indika/pycharm-2016-keymaps',
+    revision => 'master',
+    owner    => 'indika',
+    group    => 'staff',
+
+    require => Package['pycharm'],
+  }
 
   file { "${pycharm_home}/options":
      ensure   => link,
@@ -25,7 +27,6 @@ class people::indika::applications::pycharm {
 
     # TODO: Need to make it dependant on config as well
     require => Package['pycharm'],
-
   }
 
   file { "${pycharm_home}/templates":
@@ -36,7 +37,6 @@ class people::indika::applications::pycharm {
      force    => 'true',
      mode     => 700,
 
-    # TODO: Need to make it dependant on config as well
     require => Package['pycharm'],
   }
 
