@@ -10,6 +10,7 @@ class people::indika::applications {
   package { 'flash': provider => 'brewcask' }
   package { 'flux': provider => 'brewcask' }
   package { 'google-chrome': provider => 'brewcask' }
+  package { 'google-drive': provider => 'brewcask' }
   package { 'keepassx': provider => 'brewcask' }
   package { 'spotify': provider => 'brewcask' }
   package { 'skype': provider => 'brewcask' }
