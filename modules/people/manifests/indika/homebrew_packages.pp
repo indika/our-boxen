@@ -19,6 +19,7 @@ class people::indika::homebrew_packages {
         'mtr',
         'pass',
         'pstree',
+        'rdesktop',
         'task',             # Task Warrior
         'terminal-notifier',
         'tree',
