@@ -9,3 +9,6 @@
     - name: Create virtualenvs director
       file: path=~/.virtualenvs state=directory
 
+
+    # Install specified python requirements in indicated (virtualenv).
+    - pip: requirements=/Users/indika/Dropbox/Projects/meta/requirements.txt virtualenv=~/.virtualenvs/meta
