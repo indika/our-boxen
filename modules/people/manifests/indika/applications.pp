@@ -65,7 +65,7 @@ class people::indika::applications {
   include people::indika::applications::pycharm
   include people::indika::applications::tmux
   # include people::indika::applications::rubymine
-  # # include people::indika::applications::rust
+  # include people::indika::applications::rust
   # include people::indika::applications::spotifree
 
   # #TODO: Perhaps this should be a project
