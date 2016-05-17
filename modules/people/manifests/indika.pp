@@ -20,7 +20,7 @@ class people::indika {
     }
 
 
-    #include people::indika::networking
+    include people::indika::networking
     include people::indika::git_config
     include people::indika::frictionless
     include people::indika::osx_settings

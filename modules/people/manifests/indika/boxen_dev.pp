@@ -2,6 +2,7 @@ class people::indika::boxen_dev {
 
     $boxen_dev_dir = "/Users/${::boxen_user}/dev/osx-boxen"
     $puppet_modules_dir = "${boxen_dev_dir}/puppet-modules"
+    $ansible_modules_dir = "${boxen_dev_dir}/ansible-modules"
 
     # Root directory
     file { 'dir_osx-boxen':
@@ -16,6 +17,16 @@ class people::indika::boxen_dev {
     file { 'dir_puppet-modules':
       ensure   => directory,
       path     => $puppet_modules_dir,
+      owner    => 'indika',
+      group    => 'staff',
+      mode     => 755,
+      require  => File['dir_osx-boxen']
+    }
+
+    # Ansible module directory
+    file { 'dir_ansible-modules':
+      ensure   => directory,
+      path     => $ansible_modules_dir,
       owner    => 'indika',
       group    => 'staff',
       mode     => 755,
@@ -42,6 +53,27 @@ class people::indika::boxen_dev {
       owner    => 'indika',
       group    => 'staff',
       require  => File['dir_osx-boxen']
+    }
+
+    # Ansible modules
+    vcsrepo { "${ansible_modules_dir}/anxs-postgresql":
+      ensure   => present,
+      provider => git,
+      source   => "https://github.com/ANXS/postgresql.git",
+      depth    => 1,
+      owner    => 'indika',
+      group    => 'staff',
+      require  => File['ansible_modules_dir-modules']
+    }
+
+    vcsrepo { "${ansible_modules_dir}/jdauphant-nginx":
+      ensure   => present,
+      provider => git,
+      source   => "https://github.com/jdauphant/ansible-role-nginx.git",
+      depth    => 1,
+      owner    => 'indika',
+      group    => 'staff',
+      require  => File['ansible_modules_dir-modules']
     }
 
     # Remove this once I understand the dependencies
