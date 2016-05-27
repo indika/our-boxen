@@ -19,6 +19,7 @@ class people::indika::homebrew_packages {
         'mtr',
         'pass',
         'pstree',
+        'phantomjs',        # Perhaps make this project specific
         'rdesktop',
         'task',             # Task Warrior
         'terminal-notifier',
