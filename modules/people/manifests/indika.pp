@@ -38,8 +38,8 @@ class people::indika {
 
 
     # include people::indika::projects::graph
-    # include projects::blog
-    #include projects::netbox
+    include projects::blog
+    include projects::netbox
     # include projects::course
 
     include projects::sanity
