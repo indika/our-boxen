@@ -1,0 +1,16 @@
+---
+- hosts: all
+  gather_facts: no
+  remote_user: root
+
+  # Useful reading
+
+  tasks:
+    - name: Create virtualenvs director
+      file: path=~/.virtualenvs state=directory
+
+    - git: repo=https://github.com/indika/blog.git
+           dest=/Users/indika/dev/blog
+
+    # These are project specific
+    - pip: requirements=/Users/indika/dev/blog/hyde/requirements.txt virtualenv=~/.virtualenvs/blog
